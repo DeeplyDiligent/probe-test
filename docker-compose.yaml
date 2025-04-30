@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: probe-tester
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: probe-tester
+  template:
+    metadata:
+      labels:
+        app: probe-tester
+    spec:
+      containers:
+      - name: probe-tester
+        image: your-dockerhub-username/probe-tester:latest
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /liveness
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /startup
+            port: 8080
+          failureThreshold: 60
+          periodSeconds: 1
+
