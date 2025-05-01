@@ -1,9 +1,9 @@
 import unittest
 from flask import Flask
-from src.api.controllers.liveness_controller import register_liveness
-from src.api.controllers.readiness_controller import register_readiness
-from src.api.controllers.startup_controller import register_startup
-from src.api.controllers.home_controller import register_home
+from api.controllers.liveness_controller import register_liveness
+from api.controllers.readiness_controller import register_readiness
+from api.controllers.startup_controller import register_startup
+from api.controllers.home_controller import register_home
 
 class TestControllers(unittest.TestCase):
 

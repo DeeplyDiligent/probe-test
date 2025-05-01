@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "test": "export PYTHONPATH=$PYTHONPATH:/workspaces/probe-test/src && pip install -r requirements.txt && cd src && pytest",
+    "build": "pip install -r requirements.txt",
+    "launch": "docker-compose up"
+  }
+}
